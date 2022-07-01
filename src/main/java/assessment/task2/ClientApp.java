@@ -17,6 +17,10 @@ public class ClientApp
         System.out.println("Client is up");
         String ip = "68.183.239.26";
         int port = 80;
+        
+        String name = "Lim Wai Leong, Jeremy";
+        String eMail = "Jereremy19995@hotmail.sg"; 
+       
         try {
             Socket socket = new Socket(ip , port);
 
@@ -38,26 +42,27 @@ public class ClientApp
             String[] numArr = num.split(",");
             float divideWith = numArr.length;
             for (int i =0; i < numArr.length; i++) {
-                System.out.println(numArr[i] + " ");
+                // System.out.println(numArr[i] + " ");
                 int numIntArr = Integer.parseInt(numArr[i]);
                 totalAmt = numIntArr + totalAmt;
             }
             
 
             Float average = totalAmt/divideWith;
-            Float roundOff = (float) (Math.round(average * 10.0) / 10.0);
+            Float roundOff = (float) (Math.round(average * 100.0) / 100.0);
+
 
             oOut.writeUTF(id);
-            oOut.writeUTF("Lim Wai Leong, Jeremy");
-            oOut.writeUTF("Jereremy19995@hotmail.sg");
-            oOut.writeFloat(roundOff);  
+            oOut.writeUTF(name);
+            oOut.writeUTF(eMail);
+            oOut.writeFloat(average);  
 
-            System.out.println(id);
-            System.out.println(divideWith);
-            System.out.println(); 
-            System.out.println(totalAmt);  
-            System.out.println();
-            System.out.println(roundOff); 
+            // System.out.println(id);
+            // System.out.println(divideWith);
+            // System.out.println(); 
+            // System.out.println(totalAmt);  
+            // System.out.println();
+            // System.out.println(roundOff); 
 
             boolean respBoo = oIn.readBoolean();
             System.out.println(respBoo);
@@ -65,26 +70,17 @@ public class ClientApp
             if (!respBoo){
                 String resperr = oIn.readUTF();
                 System.out.println(resperr);
-
-                oIn.close();
-                in.close();
-                oOut.flush();
-                out.flush();
-                oOut.close();
-                out.close();
-                socket.close();
             }else{
                 System.out.println("SUCCESS");
-
-                oIn.close();
-                in.close();
-                oOut.flush();
-                out.flush();
-                oOut.close();
-                out.close();
-                socket.close();
             }
 
+        oIn.close();
+        in.close();
+        oOut.flush();
+        out.flush();
+        oOut.close();
+        out.close();
+        socket.close();
 
         } catch (UnknownHostException e) {
             System.err.println(e);
