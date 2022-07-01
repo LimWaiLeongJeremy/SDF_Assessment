@@ -1,6 +1,6 @@
-__address__
+__index3__
 
-Dear __first_name__,
+Dear __index1__,
 
-Thank you for staying with us over these __years__ years.
+Thank you for staying with us over these __index4__ years.
 
