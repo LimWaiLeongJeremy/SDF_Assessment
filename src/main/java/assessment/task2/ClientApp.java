@@ -42,14 +42,13 @@ public class ClientApp
             String[] numArr = num.split(",");
             float divideWith = numArr.length;
             for (int i =0; i < numArr.length; i++) {
-                // System.out.println(numArr[i] + " ");
                 int numIntArr = Integer.parseInt(numArr[i]);
                 totalAmt = numIntArr + totalAmt;
             }
             
 
             Float average = totalAmt/divideWith;
-            Float roundOff = (float) (Math.round(average * 100.0) / 100.0);
+            // Float roundOff = (float) (Math.round(average * 100.0) / 100.0);
 
 
             oOut.writeUTF(id);
@@ -58,11 +57,12 @@ public class ClientApp
             oOut.writeFloat(average);  
 
             // System.out.println(id);
-            // System.out.println(divideWith);
-            // System.out.println(); 
-            // System.out.println(totalAmt);  
             // System.out.println();
-            // System.out.println(roundOff); 
+            // System.out.println(name);
+            // System.out.println(); 
+            // System.out.println(eMail);  
+            // System.out.println();
+            // System.out.println(average); 
 
             boolean respBoo = oIn.readBoolean();
             System.out.println(respBoo);
